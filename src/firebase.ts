@@ -10,14 +10,14 @@ import { initializeApp } from 'firebase/app';
 import { getDatabase } from 'firebase/database';
 
 const firebaseConfig = {
-  apiKey: "AIzaSyAwFM-NiZqEAOt433nHhz8XE8cbf7PgrKg",
-  authDomain: "shoi-24cca.firebaseapp.com",
-  databaseURL: "https://shoi-24cca-default-rtdb.firebaseio.com",
-  projectId: "shoi-24cca",
-  storageBucket: "shoi-24cca.firebasestorage.app",
-  messagingSenderId: "385778620756",
-  appId: "1:385778620756:web:bcb8b324f149ed1b2f50c1",
-  measurementId: "G-Y7N0WGPEW6"
+  apiKey: "AIzaSyDYRUrSwsxUV3axlWMLMVQX748WNgdfZeE",
+  authDomain: "osagsdakz.firebaseapp.com",
+  databaseURL: "https://osagsdakz-default-rtdb.firebaseio.com",
+  projectId: "osagsdakz",
+  storageBucket: "osagsdakz.firebasestorage.app",
+  messagingSenderId: "1076077760713",
+  appId: "1:1076077760713:web:c39458236f2bd1549abd18",
+  measurementId: "G-7JL5309VXB"
 };
 
 const app = initializeApp(firebaseConfig);
